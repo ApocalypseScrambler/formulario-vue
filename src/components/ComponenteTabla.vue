@@ -15,7 +15,7 @@
                 <td>{{ user.apellido }}</td>
                 <td>{{ user.telefono }}</td>
                 <td>{{ user.mail }}</td>
-                <td>{{ user.contraseña }}</td>
+                <td>{{ user.password }}</td>
             </tr>
         </tbody>
     </table>

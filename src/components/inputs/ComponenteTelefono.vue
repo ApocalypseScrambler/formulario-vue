@@ -8,9 +8,10 @@
         <input type="phone" v-model="telefono" placeholder="Teléfono" />
         <span>*</span>
 
-        <componente-tooltip v-if="error" :error="error" />
+        <componente-tooltip v-show="error" :error="error" />
 
         <pre>{{ formularioStore.formulario.telefono }}</pre>
+        <pre>{{ error }}</pre>
     </div>
 </template>
     
@@ -21,7 +22,7 @@ import ComponenteTooltip from '../ComponenteTooltip.vue'
 
 export default {
 
-    name: 'ComponenteApellido',
+    name: 'ComponenteTelefono',
 
     components: {
         celularIcono,

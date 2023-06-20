@@ -5,14 +5,16 @@
             <PassIcono />
         </i>
 
-        <input :type="inputType" v-model="password" placeholder="password" />
-
-        <visible-icono :visible="visible" @click.native="visible = !visible" />
+        <input :type="inputType" v-model="password" placeholder="Password" />
 
         <span>*</span>
 
-        <componente-tooltip v-show="error" :error="error" />
+        <visible-icono class="visible" :visible="visible" @click.native="visible = !visible" />
 
+        <componente-tooltip v-show="error" :error="error" />
+        
+        <pre>{{ formularioStore.formulario.password }}</pre>
+        <pre>{{ error }}</pre>
     </div>
 </template>
   
@@ -24,6 +26,7 @@ import ComponenteTooltip from '../ComponenteTooltip.vue'
 import formularioStore from '@/stores/formularioStore'
 
 export default {
+    name: 'ComponentePassword',
 
     components: {
         PassIcono,
@@ -61,10 +64,14 @@ export default {
 
 <style scoped>
 .contenedor {
-    display: flex;
-    flex-direction: row;
+    position: relative;
     margin: 2rem 2rem 0.4rem;
     width: 80%;
+}
+
+.visible {
+    position: absolute;
+    right: 7px;
 }
 
 input {

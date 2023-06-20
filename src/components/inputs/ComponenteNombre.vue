@@ -8,9 +8,10 @@
     <input type="text" v-model="nombre" placeholder="Nombre(s)" />
     <span>*</span>
 
-    <componente-tooltip v-if="error" :error="error" />
+    <componente-tooltip v-show="error" :error="error" />
 
     <pre>{{ formularioStore.formulario.nombre }}</pre>
+    <pre>{{ error }}</pre>
   </div>
 </template>
   

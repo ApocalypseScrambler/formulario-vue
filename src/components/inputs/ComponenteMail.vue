@@ -8,9 +8,10 @@
         <input type="mail" v-model="mail" placeholder="mail@mail.com" />
         <span>*</span>
 
-        <componente-tooltip v-if="error" :error="error" />
+        <componente-tooltip v-show="error" :error="error" />
 
         <pre>{{ formularioStore.formulario.mail }}</pre>
+        <pre>{{ error }}</pre>
     </div>
 </template>
     
@@ -21,7 +22,7 @@ import ComponenteTooltip from '../ComponenteTooltip.vue'
 
 export default {
 
-    name: 'ComponenteNombre',
+    name: 'ComponenteMail',
 
     components: {
         mailIcono,

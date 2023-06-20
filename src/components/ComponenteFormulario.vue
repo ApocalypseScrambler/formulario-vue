@@ -7,7 +7,7 @@
     <componente-apellido />
     <componente-telefono />
     <componente-mail />
-    <componente-pasword />
+    <componente-password />
     
     <p>* Estos campos son obligatorios.</p>
     <button type="submit">Enviar</button>
@@ -21,7 +21,7 @@ import componenteNombre from './inputs/ComponenteNombre.vue';
 import formularioStore from '@/stores/FormularioStore'
 import ComponenteApellido from './inputs/ComponenteApellido.vue';
 import ComponenteMail from './inputs/ComponenteMail.vue';
-import ComponentePasword from './inputs/ComponentePasword.vue';
+import ComponentePassword from './inputs/ComponentePassword.vue';
 import ComponenteTelefono from './inputs/ComponenteTelefono.vue';
 
 export default {
@@ -32,7 +32,7 @@ export default {
     componenteNombre,
     ComponenteApellido,
     ComponenteMail,
-    ComponentePasword,
+    ComponentePassword,
     ComponenteTelefono
   },
 
