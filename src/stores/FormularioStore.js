@@ -1,94 +1,60 @@
-// Regular expression para letras con tildes y eñe:
-const letrasRegEx = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/;
+import validacionClase, { ValidacionMail, ValidacionPassword, ValidacionTelefono } from './ValidacionesClase'
 
 export default {
-  // STATE
-  form: {
+  formulario: {
     nombre: "",
     apellido: "",
+    telefono: "",
     mail: "",
     password: "",
   },
 
-  // Booleano para mostrar mensajes de error
-  // si el usuario cliqueó en enviar pero no lo completó bien
   submitted: false,
 
-  // Array para guardar los formularios completados
   usuarios: [],
-
-  // Validaciones
-
-  emptyField() {
-    // Si el usuario cliqueó en enviar pero no ingresó el nombre
-    // retornar un mensaje de error
-    if (this.submitted && !this.form.nombre)
-      return "Este campo es obligatorio.";
-    else return "";
+ 
+  erroresNombre() {
+    return new validacionClase(this.formulario.nombre, this.submitted)
   },
-
-  tooShort() {
-    // Si son menos de dos letras, mostrar error
-    if (this.submitted && this.form.nombre && this.form.nombre.length < 2)
-      return "El nombre debe contener al menos 2 letras.";
-    else return "";
+  erroresApellido() {
+    return new validacionClase(this.formulario.apellido, this.submitted)
   },
-
-  tooLong() {
-    // Si son más de 20 letras, mostrar error
-    if (
-      this.submitted &&
-      this.form.nombre &&
-      this.form.nombre.length > 20
-    )
-      return "El nombre no debe contener más de 20 letras.";
-    else return "";
+  erroresMail() {
+    return new ValidacionMail(this.formulario.mail, this.submitted)
   },
-
-  invalidChars() {
-    if (
-      this.submitted &&
-      this.form.nombre &&
-      !letrasRegEx.test(this.form.nombre)
-    )
-      return "El nombre sólo debe contener letras.";
-    else return "";
+  erroresPassword() {
+    return new ValidacionPassword(this.formulario.password, this.submitted)
   },
-
-  checkFields() {
-    // Si no hay errores, retorna true
+  erroresTelefono() {
+    return new ValidacionTelefono(this.formulario.telefono, this.submitted)
+  },
+  
+  controloCampos() {
     return (
-      !this.emptyField() &&
-      !this.tooShort() &&
-      !this.tooLong() &&
-      !this.invalidChars()
+      this.erroresNombre().sinErrores() &&
+      this.erroresApellido().sinErrores() &&
+      this.erroresMail().mailSinErrores() &&
+      this.erroresPassword().sinErroresPassword() &&
+      this.erroresTelefono().telefonoSinErrores()
     );
   },
 
-  // ACTIONS
-  submitForm() {
+  submitFormulario() {
     this.submitted = true
-    // Si no hay errores checkFields() retorna true
-    // y se agrega el contenido del formulario al array de usuarios
-    if (this.checkFields()) {
-      this.usuarios.push({ ...this.form })
-      this.resetForm()
+    if (this.controloCampos()) {
+      this.usuarios.push({ ...this.formulario })
+      this.resetFormulario()
     } else {
-      // Si hay errores hace un scroll hacia arriba
-      // para que el usuario vea los mensajes de error
       window.scroll(0, 0)
     }
   },
 
-  // Setter para v-model
-  setNewValue(field, newValue) {
-    this.form[field] = newValue;
+  nuevoValor(campo, nuevoValor) {
+    this.formulario[campo] = nuevoValor;
   },
 
-  resetForm() {
-    // Para resetear el formulario hay que hacer
-    // que todos los keys del objeto this.form
-    Object.keys(this.form).forEach((key) => (this.form[key] = ""));
+  resetFormulario() {
+    Object.keys(this.formulario).forEach((key) => (this.formulario[key] = ""));
     this.submitted = false;
   },
 };

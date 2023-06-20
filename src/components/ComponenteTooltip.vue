@@ -1,5 +1,5 @@
 <template>
-    <div class="tooltip" v-show="error">
+    <div class="tooltip" v-if="error">
       <p>{{ error }}</p>
     </div>
   </template>

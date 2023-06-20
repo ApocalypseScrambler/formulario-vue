@@ -5,12 +5,12 @@
       <usuarioIcono />
     </i>
 
-    <input type="text" v-model="nombre" placeholder="Nombre(s)" />
+    <input type="text" v-model="apellido" placeholder="Apellido(s)" />
     <span>*</span>
 
     <componente-tooltip v-if="error" :error="error" />
 
-    <pre>{{ formularioStore.formulario.nombre }}</pre>
+    <pre>{{ formularioStore.formulario.apellido }}</pre>
   </div>
 </template>
   
@@ -21,7 +21,7 @@ import ComponenteTooltip from '../ComponenteTooltip.vue'
 
 export default {
 
-  name: 'ComponenteNombre',
+  name: 'ComponenteApellido',
 
   components: {
     usuarioIcono,
@@ -34,18 +34,18 @@ export default {
   computed: {
     error() {
       return (
-        this.formularioStore.erroresNombre().campoVacio() ||
-        this.formularioStore.erroresNombre().demasiadoCorto() ||
-        this.formularioStore.erroresNombre().demasiadoLargo() ||
-        this.formularioStore.erroresNombre().caracteresInvalidos()
+        this.formularioStore.erroresApellido().campoVacio() ||
+        this.formularioStore.erroresApellido().demasiadoCorto() ||
+        this.formularioStore.erroresApellido().demasiadoLargo() ||
+        this.formularioStore.erroresApellido().caracteresInvalidos()
       )
     },
-    nombre: {
+    apellido: {
       get() {
-        return this.formularioStore.formulario.nombre
+        return this.formularioStore.formulario.apellido
       },
       set(nuevoValor) {
-        this.formularioStore.nuevoValor('nombre', nuevoValor)
+        this.formularioStore.nuevoValor('apellido', nuevoValor)
       }
     }
   }
