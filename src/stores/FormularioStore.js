@@ -1,4 +1,4 @@
-import validacionClase, { ValidacionMail, ValidacionPassword, ValidacionTelefono } from './ValidacionesClase'
+import validacionClase, { ValidacionMail, ValidacionPassword, ValidacionTelefono } from './validacionesClase'
 
 export default {
   formulario: {

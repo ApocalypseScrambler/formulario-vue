@@ -18,7 +18,7 @@
 <script>
 
 import componenteNombre from './inputs/ComponenteNombre.vue';
-import formularioStore from '@/stores/FormularioStore'
+import formularioStore from '@/stores/formularioStore'
 import ComponenteApellido from './inputs/ComponenteApellido.vue';
 import ComponenteMail from './inputs/ComponenteMail.vue';
 import ComponentePassword from './inputs/ComponentePassword.vue';

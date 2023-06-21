@@ -10,14 +10,12 @@
 
         <componente-tooltip v-show="error" :error="error" />
 
-        <pre>{{ formularioStore.formulario.mail }}</pre>
-        <pre>{{ error }}</pre>
     </div>
 </template>
     
 <script>
 import mailIcono from '../icons/MailIcono.vue'
-import formularioStore from '@/stores/FormularioStore'
+import formularioStore from '@/stores/formularioStore'
 import ComponenteTooltip from '../ComponenteTooltip.vue'
 
 export default {

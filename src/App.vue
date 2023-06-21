@@ -8,7 +8,7 @@
 <script>
 import ComponenteFormulario from './components/ComponenteFormulario.vue';
 import ComponenteTabla from './components/ComponenteTabla.vue';
-import formularioStore from '@/stores/FormularioStore'
+import formularioStore from '@/stores/formularioStore'
 
 export default {
     name: "App",

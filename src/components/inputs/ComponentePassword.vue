@@ -13,8 +13,6 @@
 
         <componente-tooltip v-show="error" :error="error" />
         
-        <pre>{{ formularioStore.formulario.password }}</pre>
-        <pre>{{ error }}</pre>
     </div>
 </template>
   
